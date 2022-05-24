@@ -1,4 +1,11 @@
-SELECT i.InvoiceId AS "Идентификатор счет-фактуры", t.Name AS "Название трека", t.Composer AS "Имя исполнителя" 
-FROM InvoiceLine i
-	JOIN Track t 
-	ON i.TrackId = t.TrackId;
+SELECT il.invoiceid,
+       t.name,
+       art.name
+FROM   invoiceline il
+       LEFT JOIN track t
+         ON t.trackid = il.trackId
+       LEFT JOIN album a
+         ON a.albumid = t.albumid
+       LEFT JOIN artist art
+         ON art.artistid = a.artistid
+GROUP BY t.Name;
