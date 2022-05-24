@@ -1,3 +1,3 @@
 # SQL-tasks
 
- * Each file contains the solution to the question provided in `stepik.org`.
+ * Each file contains the solution to the corresponding question provided in `stepik.org`.
