@@ -1,3 +1,3 @@
 SELECT count(InvoiceId) AS "Количество позиций счет-фактур", BillingCountry AS "Название страны"
-FROM Invoice' 
+FROM Invoice 
 	GROUP BY BillingCountry;
