@@ -1,9 +1,6 @@
-SELECT tr.Name AS "Название трека", count(il.Quantity) AS "Количество экземпляров трека"
-FROM Track tr
-	JOIN InvoiceLine il
-		ON tr.TrackId = il.TrackId
-	JOIN Invoice i
-		ON il.InvoiceId = i.InvoiceId
-	WHERE i.InvoiceDate Like '2013%'
-	GROUP BY tr.Name
-	ORDER BY count(il.Quantity) DESC;
+SELECT t.Name, count(il.Quantity)
+FROM Track t
+JOIN InvoiceLine il ON t.TrackId = il.TrackId
+JOIN Invoice iv ON il.InvoiceId = iv.InvoiceId
+GROUP BY t.Name
+ORDER BY count(il.Quantity) DESC; 
