@@ -5,4 +5,4 @@ FROM Track tr
 	JOIN Invoice i
 		ON il.InvoiceId = i.InvoiceId
 	GROUP BY tr.Name
-	ORDER BY count(i.Quantity) DESC;
+	ORDER BY count(il.Quantity) DESC;
