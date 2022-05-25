@@ -4,5 +4,6 @@ FROM Track tr
 		ON tr.TrackId = il.TrackId
 	JOIN Invoice i
 		ON il.InvoiceId = i.InvoiceId
+	WHERE i.InvoiceDate Like '2013%'
 	GROUP BY tr.Name
 	ORDER BY count(il.Quantity) DESC;
