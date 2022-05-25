@@ -1,3 +1,5 @@
-SELECT count(InvoiceId) AS "Количество позиций счет-фактур", BillingCountry AS "Название страны"
-FROM Invoice 
+SELECT count(*) AS "Количество позиций счет-фактур", inv.BillingCountry AS "Название страны"
+FROM InvoiceLine il
+JOIN Invoice inv 
+	ON il.InvoiceId = inv.InvoiceId
 	GROUP BY BillingCountry;
