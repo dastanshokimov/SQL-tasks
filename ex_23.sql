@@ -1,6 +1,8 @@
-SELECT tr.Name AS "Название трека", count(i.Quantity) AS "Количество экземпляров трека"
+SELECT tr.Name AS "Название трека", count(il.Quantity) AS "Количество экземпляров трека"
 FROM Track tr
-	LEFT JOIN InvoiceLine i
-		ON tr.TrackId = i.TrackId
+	JOIN InvoiceLine il
+		ON tr.TrackId = il.TrackId
+	JOIN Invoice i
+		ON il.InvoiceId = i.InvoiceId
 	GROUP BY tr.Name
 	ORDER BY count(i.Quantity) DESC;
